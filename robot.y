@@ -55,7 +55,7 @@ void move_robot(const char* direction, int distance) {
     command_count++;
     coordinates_t.x += (strcmp(direction,"right") == 0) ? distance : (strcmp(direction,"left") == 0) ? -distance : 0;
     coordinates_t.y += (strcmp(direction,"up") == 0) ? distance : (strcmp(direction,"down") == 0) ? -distance : 0;
-    printf("%d. Moving robot %s by %d...\ncoordinates:(%d,%d)\n", command_count, direction, distance,coordinates_t.x,coordinates_t.y);
+    printf("%d. Moving robot %s by %d...\ncoordinates:(%d;%d)\n", command_count, direction, distance,coordinates_t.x,coordinates_t.y);
 }
 void action(const char* action_name, const char* direction, int distance) {
     command_count++;
@@ -67,13 +67,13 @@ void action(const char* action_name, const char* direction, int distance) {
     coordinates_t.x += deltaX;
     coordinates_t.y += deltaY;
     
-    printf("%d. Robot performed the action: %s by coordinates %d...\ncoordinates:(%d,%d)\n", 
+    printf("%d. Robot performed the action: %s by coordinates %d...\ncoordinates:(%d;%d)\n", 
            command_count, action_name, distance, coordinates_t.x, coordinates_t.y);
     
     if (strcmp(action_name, "paint") == 0) {
         coordinates_t.paintedX = coordinates_t.x;
         coordinates_t.paintedY = coordinates_t.y;
-        printf("Painted at coordinates: (%d,%d)\n", coordinates_t.paintedX, coordinates_t.paintedY);
+        //printf("Painted at coordinates: (%d;%d)\n", coordinates_t.paintedX, coordinates_t.paintedY);
     }
 }
 bool check(const char* direction, int distance) {
